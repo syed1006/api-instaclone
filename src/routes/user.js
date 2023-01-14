@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const { body, validationResult } = require('express-validator');
 const dotenv = require('dotenv');
 const jwt = require('jsonwebtoken');
-const User = require('../model/User')
+const User = require('../models/User')
 
 dotenv.config();
 const jwtSecret = process.env.JWT_SECRET
@@ -65,7 +65,7 @@ router.post('/login',[
     }
     const {email, password} = req.body
     try{
-        let user = await User.find({email});
+        let user = await User.findOne({email});
         if (!user) {
             return res.status(400).json({
                 staus: 'Failure',
