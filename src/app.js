@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // Import routes
-const postRoute = require('./routes/blog');
+const postRoute = require('./routes/post');
 const userRoute = require('./routes/user');
 
 
